@@ -4,18 +4,18 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 
-const API_BASE = "https://my-backend.onrender.com";
+const API_BASE = "http://localhost:5000";
 
 function App() {
   const [response, setResponse] = useState(null);
 
   const setCookie = async () => {
-    const res = await axios.get(`${API_BASE}/set-cookie`);
+    const res = await axios.get(`${API_BASE}/set-cookie`, { withCredentials: true });
     setResponse(res.data);
   };
 
   const getCookie = async () => {
-    const res = await axios.get(`${API_BASE}/get-cookie`);
+    const res = await axios.get(`${API_BASE}/get-cookie`, { withCredentials: true });
     setResponse(res.data);
   };
 
@@ -57,5 +57,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
